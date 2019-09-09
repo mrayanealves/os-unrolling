@@ -32,7 +32,7 @@ def unroll(args, function, method, result):
 
 
 if __name__ == '__main__':
-  x = [2, 3, 4, 5]
+  x = [10, 25, 50, 75, 100, 200, 300, 500, 800]
 
   for i in range(len(x)):
     a = numpy.random.randint(0, 100 + 1, (x[i], x[i]))
