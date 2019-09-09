@@ -1,8 +1,10 @@
 import threading
+import numpy
+import datetime
 
 lock = threading.Lock() 
 
-# Função que recebe duas linhas de uma duas matrizes e as soma
+# Funcao que recebe duas linhas de uma duas matrizes e as soma
 def sumthread (nrow, rowa, rowb):
   global lock
   global result
@@ -15,7 +17,7 @@ def sumthread (nrow, rowa, rowb):
   result.insert(nrow, aux)  
   lock.release()
 
-# Função que indica o paralelismo.
+# Funcao que indica o paralelismo.
 def unroll(args, function, method, result):
   if method == "thre":
     a = args[0]
@@ -30,14 +32,27 @@ def unroll(args, function, method, result):
 
 
 if __name__ == '__main__':
-  a = [[1, 2, 5], [5, 8, 9]]
-  b = [[3, 2, 1], [5, 9, 6]]
-  result = []
+  x = [2, 3, 4, 5]
 
-  args= []
-  args.insert(0, a)
-  args.insert(1, b)
+  for i in range(len(x)):
+    a = numpy.random.randint(0, 100 + 1, (x[i], x[i]))
+    b = numpy.random.randint(0, 100 + 1, (x[i], x[i]))
+    result = []
 
-  unroll(args, sumthread, "thre", result)
+    args= []
+    args.insert(0, a)
+    args.insert(1, b)
 
-  print(result)
+    start = datetime.datetime.today()
+
+    unroll(args, sumthread, "thre", result)
+
+    end = datetime.datetime.today()
+
+    print(result)
+
+    duracao = end - start
+    with open('thread-sum-time.txt', 'a') as file:
+      file.write(str(duracao.total_seconds()) + "\n")
+      file.close()
+    
