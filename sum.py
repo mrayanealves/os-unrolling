@@ -32,6 +32,8 @@ def unroll(args, function, method, result):
 
 
 if __name__ == '__main__':
+  open('thread-sum-time.txt', 'w').close()
+
   x = [10, 25, 50, 75, 100, 200, 300, 500, 800]
 
   for i in range(len(x)):

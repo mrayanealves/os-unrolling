@@ -35,6 +35,9 @@ def mult(args, results):
     aux = []
 
 if __name__ == '__main__':
+  open('seq-sum-time.txt', 'w').close()
+  open('seq-mult-time.txt', 'w').close()
+
   rangeI = [10, 25, 50, 75, 100, 200, 300, 500, 800]
   
   for i in rangeI:

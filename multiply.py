@@ -51,6 +51,8 @@ def unroll(args, function, method, result):
       threads[i].start()
 
 if __name__ == '__main__':
+  open('thread-mult-time.txt', 'w').close()
+
   rangeI = [10, 25, 50, 75, 100, 200, 300]
   
   for i in rangeI:
