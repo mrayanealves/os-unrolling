@@ -1,3 +1,6 @@
+import numpy
+import datetime
+
 def sum(args, results):
   a = args[0]
   b = args[1]
@@ -32,27 +35,45 @@ def mult(args, results):
     aux = []
 
 if __name__ == '__main__':
-  a = [[4, 6, 5], [5, 8, 9]]
-  b = [[3, 2, 1], [5, 9, 6]]
-  results = []
-
-  args= []
-  args.insert(0, a)
-  args.insert(1, b)
-
-  sum(args, results)
-
-  print(results)
+  rangeI = [10, 25, 50, 75, 100, 200, 300, 500, 800]
   
-  results = []
+  for i in rangeI:
+    a = numpy.random.randint(0, 100 + 1, (i, i))
+    b = numpy.random.randint(0, 100 + 1, (i, i))
+    results = []
 
-  a = [[4, 8, 4], [1, 3, 1], [1, 2, 4], [1, 1, 1]]
-  b = [[3, 2, 4], [5, 9, 4], [5, 9, 4]]
+    args= []
+    args.insert(0, a)
+    args.insert(1, b)
 
-  args = []
-  args.insert(0, a)
-  args.insert(1, b)
+    startSum = datetime.datetime.today()
 
-  mult(args, results)
+    sum(args, results)
 
-  print(results)
+    endSum = datetime.datetime.today()
+
+    with open("seq-sum-time.txt", "a") as file:
+      file.write(str((endSum - startSum).total_seconds()) + "\n")
+      file.close()
+
+
+  rangeI = [10, 25, 50, 75, 100, 200, 300]
+  
+  for i in rangeI:
+    a = numpy.random.randint(0, 100 + 1, (i, i))
+    b = numpy.random.randint(0, 100 + 1, (i, i))
+    results = []
+
+    args = []
+    args.insert(0, a)
+    args.insert(1, b)
+
+    startMult = datetime.datetime.today()
+
+    mult(args, results)
+
+    endMult = datetime.datetime.today()
+  
+    with open("seq-mult-time.txt", "a") as file:
+      file.write(str((endMult - startMult).total_seconds()) + "\n")
+      file.close()
