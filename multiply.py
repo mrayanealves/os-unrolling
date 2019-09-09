@@ -2,6 +2,7 @@ import threading
 
 lock = threading.Lock() 
 
+# Função recebe uma linha de uma matriz a e uma matriz b e realiza a multiplicação
 def multthread(nrow, rowa, b):
   global lock
   global result
@@ -10,21 +11,28 @@ def multthread(nrow, rowa, b):
   cont = 0
   aux = []
   
+  # Enquanto o contador for menor que a quantidade de elementos na coluna de b
   while cont < len(b[0]):
+    # Cria uma lista com os elementos de uma coluna de b
     colb = [(x[cont]) for x in b]
     
+    # Percorre a linha da matrix a (lista)
     for i in range(len(rowa)):
+      # Soma no número o valor da linha de a com o da coluna em b
       numero += rowa[i]*colb[i] 
     
+    # Insere em um vetor auxiliar
     aux.insert(cont, numero)
       
     cont+=1
     numero = 0
-      
+
   lock.acquire()
+  # Insere no resultado na linha nrow recebida o vetor calculado para aquela linha
   result.insert(nrow, aux)
   lock.release()
 
+# Função que indica o paralelismo.
 def unroll(args, function, method, result):
   if method == "thre":
     a = args[0]
@@ -34,7 +42,9 @@ def unroll(args, function, method, result):
     
     rowa = len(a)
     
-    for i in range(rowa):  
+    for i in range(rowa): 
+      # Obtém as linhas do vetor a e cria uma thread para o cálculo 
+      # da múltiplicação dessa linha com a matrix b 
       threads.insert(i, threading.Thread(target=function, args=(i, a[i], b)))
       threads[i].start()
 

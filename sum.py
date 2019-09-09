@@ -2,6 +2,7 @@ import threading
 
 lock = threading.Lock() 
 
+# Função que recebe duas linhas de uma duas matrizes e as soma
 def sumthread (nrow, rowa, rowb):
   global lock
   global result
@@ -13,7 +14,8 @@ def sumthread (nrow, rowa, rowb):
   lock.acquire()
   result.insert(nrow, aux)  
   lock.release()
-  
+
+# Função que indica o paralelismo.
 def unroll(args, function, method, result):
   if method == "thre":
     a = args[0]
