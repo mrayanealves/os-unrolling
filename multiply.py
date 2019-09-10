@@ -18,7 +18,7 @@ def multthread(nrow, rowa, b):
     # Cria uma lista com os elementos de uma coluna de b
     colb = [(x[cont]) for x in b]
     
-    # Percorre a linha da matrix a (lista)
+    # Percorre a linha da matrix a (lista)n
     for i in range(len(rowa)):
       # Soma no numero o valor da linha de a com o da coluna em b
       numero += rowa[i]*colb[i] 

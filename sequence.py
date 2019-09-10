@@ -60,23 +60,23 @@ if __name__ == '__main__':
       file.close()
 
 
-  # rangeI = [10, 25, 50, 75, 100, 200, 300]
+  rangeI = [10, 25, 50, 75, 100, 200, 300]
   
-  # for i in rangeI:
-  #   a = numpy.random.randint(0, 100 + 1, (i, i))
-  #   b = numpy.random.randint(0, 100 + 1, (i, i))
-  #   results = []
+  for i in rangeI:
+    a = numpy.random.randint(0, 100 + 1, (i, i))
+    b = numpy.random.randint(0, 100 + 1, (i, i))
+    results = []
 
-  #   args = []
-  #   args.insert(0, a)
-  #   args.insert(1, b)
+    args = []
+    args.insert(0, a)
+    args.insert(1, b)
 
-  #   startMult = datetime.datetime.today()
+    startMult = datetime.datetime.today()
 
-  #   mult(args, results)
+    mult(args, results)
 
-  #   endMult = datetime.datetime.today()
+    endMult = datetime.datetime.today()
   
-  #   with open("seq-mult-time.txt", "a") as file:
-  #     file.write(str((endMult - startMult).total_seconds()) + "\n")
-  #     file.close()
+    with open("seq-mult-time.txt", "a") as file:
+      file.write(str((endMult - startMult).total_seconds()) + "\n")
+      file.close()
