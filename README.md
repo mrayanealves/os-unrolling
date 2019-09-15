@@ -1,4 +1,4 @@
-# Os-unrolling
+# os-unrolling
 
 Utilizando threads para realização de soma e multiplicação de matrizes
 
