@@ -32,7 +32,7 @@ def unroll(args, function, method, result):
 
 
 if __name__ == '__main__':
-  open('thread-sum-time.txt', 'w').close()
+  open('files/thread-sum-time.txt', 'w').close()
 
   x = [10, 25, 50, 75, 100, 200, 300, 500, 800]
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     print(result)
 
     duracao = end - start
-    with open('thread-sum-time.txt', 'a') as file:
+    with open('files/thread-sum-time.txt', 'a') as file:
       file.write(str(duracao.total_seconds()) + "\n")
       file.close()
     

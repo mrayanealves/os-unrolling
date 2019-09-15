@@ -51,7 +51,7 @@ def unroll(args, function, method, result):
       threads[i].start()
 
 if __name__ == '__main__':
-  open('thread-mult-time.txt', 'w').close()
+  open('files/thread-mult-time.txt', 'w').close()
 
   rangeI = [10, 25, 50, 75, 100, 200, 300]
   
@@ -70,6 +70,6 @@ if __name__ == '__main__':
 
     end = datetime.datetime.today()
 
-    with open("thread-mult-time.txt", "a") as file:
+    with open("files/thread-mult-time.txt", "a") as file:
       file.write(str((end - start).total_seconds()) + "\n")
       file.close()

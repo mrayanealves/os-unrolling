@@ -35,8 +35,8 @@ def mult(args, results):
     aux = []
 
 if __name__ == '__main__':
-  open('seq-sum-time.txt', 'w').close()
-  open('seq-mult-time.txt', 'w').close()
+  open('files/seq-sum-time.txt', 'w').close()
+  open('files/seq-mult-time.txt', 'w').close()
 
   rangeI = [10, 25, 50, 75, 100, 200, 300, 500, 800]
   
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     endSum = datetime.datetime.today()
 
-    with open("seq-sum-time.txt", "a") as file:
+    with open("files/seq-sum-time.txt", "a") as file:
       file.write(str((endSum - startSum).total_seconds()) + "\n")
       file.close()
 
@@ -77,6 +77,6 @@ if __name__ == '__main__':
 
     endMult = datetime.datetime.today()
   
-    with open("seq-mult-time.txt", "a") as file:
+    with open("files/seq-mult-time.txt", "a") as file:
       file.write(str((endMult - startMult).total_seconds()) + "\n")
       file.close()
